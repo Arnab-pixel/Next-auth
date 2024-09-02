@@ -3,6 +3,7 @@ import authConfig from "./auth.config";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { db } from "./lib/db";
 import { getUserById } from "./data/user";
+import { getTwoFactorConfirmationByUserId } from "./data/two-factor-confirmation";
 
 export const { auth, handlers, signIn, signOut } = NextAuth({
   pages: {
@@ -27,7 +28,17 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
       // Prevent sign in without email verification
       if (!existingUser?.emailVerified) return false;
 
-      // TODO: Add 2FA check
+      if (existingUser.isTwoFactorEnabled) {
+        const twoFactorConfirmation = await getTwoFactorConfirmationByUserId(
+          existingUser.id
+        );
+
+        if (!twoFactorConfirmation) return false;
+
+        await db.twoFactorConfirmation.delete({
+          where: { id: twoFactorConfirmation.id },
+        });
+      }
 
       return true;
     },
@@ -39,6 +50,9 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
       if (token.role && session.user) {
         session.user.role = token.role;
       }
+      if (session.user) {
+        session.user.isTwoFactorEnabled = token.isTwoFactorEnabled as boolean;
+      }
       return session;
     },
     async jwt({ token }) {
@@ -48,6 +62,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
       if (!existingUser) return token;
 
       token.role = existingUser.role;
+      token.isTwoFactorEnabled = existingUser.isTwoFactorEnabled;
       return token;
     },
   },
