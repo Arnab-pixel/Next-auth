@@ -6,7 +6,7 @@ import { signIn } from "@/auth";
 import * as z from "zod";
 import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
 import { AuthError } from "next-auth";
-import { getUserByEmail, getUserById } from "@/data/user";
+import { getUserByEmail } from "@/data/user";
 import {
   generateTwoFactorToken,
   generateVerificationToken,
@@ -29,16 +29,8 @@ export const login = async (
   const { email, password, code } = validatedFeilds.data;
 
   const existingUser = await getUserByEmail(email);
-  const existingUserPassword = await getUserById(password);
 
   if (!existingUser || !existingUser.email || !existingUser.password) {
-    return { error: "Invalid Credentials" };
-  }
-  if (
-    !existingUserPassword ||
-    !existingUserPassword.email ||
-    !existingUserPassword.password
-  ) {
     return { error: "Invalid Credentials" };
   }
 
