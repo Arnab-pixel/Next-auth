@@ -8,6 +8,7 @@ import { getUserByEmail } from "./data/user";
 
 import Github from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
+import { errorToJSON } from "next/dist/server/render";
 
 export default {
   providers: [
