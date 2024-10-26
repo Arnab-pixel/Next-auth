@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center">
+  <br />
+  <br />
 
-## Getting Started
+  <div>
+    <img src="https://img.shields.io/badge/-TypeScript-black?style=for-the-badge&logoColor=white&logo=typescript&color=3178C6" alt="typescript" />
+    <img src="https://img.shields.io/badge/-Next_JS-black?style=for-the-badge&logoColor=white&logo=nextdotjs&color=000000" alt="nextdotjs" />
+    <img src="https://img.shields.io/badge/-Tailwind_CSS-black?style=for-the-badge&logoColor=white&logo=tailwindcss&color=06B6D4" alt="tailwindcss" />
+  </div>
 
-First, run the development server:
+  <h3 align="center">An Authentication app</h3>
+</div>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 📋 <a name="table">Table of Contents</a>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. 🤖 [Introduction](#introduction)
+2. ⚙️ [Tech Stack](#tech-stack)
+3. 🔋 [Features](#features)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## <a name="introduction">🤖 Introduction</a>
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+This project is a robust authentication system built using Next.js and NextAuth.js, designed to securely handle user sign-ins, sessions, and access control. It supports multiple OAuth providers (like Google, GitHub, Facebook), email-based login, and credentials-based authentication. The project follows modern authentication best practices, leveraging server-side rendering for enhanced security and performance. It integrates easily with databases for persistent user sessions and allows for fine-grained control over authentication flows, making it a flexible solution for web applications needing scalable authentication.
 
-## Learn More
+## <a name="tech-stack">⚙️ Tech Stack</a>
 
-To learn more about Next.js, take a look at the following resources:
+- Next.js
+- TypeScript
+- shadcn
+- Tailwind CSS
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## <a name="features">🔋 Features</a>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+**Multiple Authentication Providers**:
+Supports OAuth providers like Google, GitHub, Facebook, and more.
+Email-based sign-in for passwordless authentication.
+Traditional username and password (credentials-based) authentication.
 
-## Deploy on Vercel
+**JWT and Session Management**:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Secure user sessions with JSON Web Tokens (JWT).
+Server-side session management for better performance and security.
+Configurable session duration and refresh tokens.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+**Server-Side Rendering (SSR) Support**:
+
+Seamless integration with Next.js' server-side rendering for secure user data access.
+SSR ensures protected content rendering and better SEO performance.
+
+**Role-Based Access Control (RBAC)**:
+
+Fine-grained user roles and permissions.
+Ability to restrict routes and pages based on user roles (admin, user, etc.).
+
+**Client-Side and Server-Side Authentication**:
+
+Works seamlessly in both client-side and server-side contexts.
+Client-side hooks to easily manage authentication state in React components.
+
+**Extensive Documentation & Community Support**:
+
+Well-documented for easy setup and customization.
+Active community and regular updates from the NextAuth.js team.
