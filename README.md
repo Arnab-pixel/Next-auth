@@ -36,27 +36,22 @@ Email-based sign-in for passwordless authentication.
 Traditional username and password (credentials-based) authentication.
 
 **JWT and Session Management**:
-
 Secure user sessions with JSON Web Tokens (JWT).
 Server-side session management for better performance and security.
 Configurable session duration and refresh tokens.
 
 **Server-Side Rendering (SSR) Support**:
-
 Seamless integration with Next.js' server-side rendering for secure user data access.
 SSR ensures protected content rendering and better SEO performance.
 
 **Role-Based Access Control (RBAC)**:
-
 Fine-grained user roles and permissions.
 Ability to restrict routes and pages based on user roles (admin, user, etc.).
 
 **Client-Side and Server-Side Authentication**:
-
 Works seamlessly in both client-side and server-side contexts.
 Client-side hooks to easily manage authentication state in React components.
 
 **Extensive Documentation & Community Support**:
-
 Well-documented for easy setup and customization.
 Active community and regular updates from the NextAuth.js team.
